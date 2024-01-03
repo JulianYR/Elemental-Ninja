@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=Carter+One&family=Montserrat:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500&display=swap');
+
+* {
+    font-family: "Carter One", sans-serif;
+}
+/* Seleccionar Mokepon */
+body{
+    background: linear-gradient(
+            #52c3e5b6,
+            #1c3270
+        ) center fixed;
+    background-size: cover;
+}
+
+.contenedores {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sectionBotonNinja {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.divs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.habilitys {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#version{
+    color: #fff;
+}
+
+.e{
+    color: #404258;
+    margin-top: 12px;
+}
+#n{
+    color: #004faa;
+    margin: 0px;
+}
+.elige{
+    color: #00253d;
+}
+
+.logo img{
+    height: 100px;
+}
+
+#bienvenida{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.typed{
+    font-family: 'Cairo', sans-serif;
+}
+#next{
+    background: radial-gradient(
+        #4460ad,
+        #418093b6
+    );
+    width: 140px;
+    height: 40px;
+    transition: 0.4s;
+    border: none;
+    border-radius: 20px;
+}
+#next:hover{
+    background: radial-gradient(
+        #296679b6,
+        #1e3f9c
+    );
+    width: 180px;
+    height: 65px;
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+#selecionar-ninja{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tarjeta-ninja{
+    width: 165px;
+    height: 110px;
+    background: linear-gradient(
+        #067799b6,
+        #1037a1
+    );
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 5px;
+    border-radius: 12px;
+    border: none;
+    display: flex;
+    box-shadow: 0 0 5px #6B728E,
+                0 0 15px #6B728E;
+    transition: 0.4s;
+    border: none;
+}
+
+.tarjeta-ninja:hover{
+    width: 175px;
+    height: 110px;
+    background: linear-gradient(
+        #153eaf,
+        #088db6b6
+    );
+    padding: 10px;
+    box-sizing: border-box;
+    margin: 10px;
+    border-radius: 12px;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    color: #b8abab;
+    box-shadow: 0 0 10px #585c6c,
+                0 0 20px #585c6c,
+                0 0 30px #585c6c,
+                0 0 40px #585c6c,
+                0 0 50px #585c6c;
+    transition: 0.5s;
+}
+
+
+input{
+    display: none;
+}
+
+.imgs{
+    width: 57px;
+}
+
+.victorys{
+    display: flex;
+}
+.victorys1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 34px;
+}
+.victorys2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 34px;
+}
+
+#cancelar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton-ninja{
+    background-color: #6B728E;
+    color: black;
+    width: 180px;
+    height: 60px;
+    border-radius: 12px;
+    font-family: "Carter One", sans-serif;
+    box-shadow: 7px 10px 12px 5px #29335c;
+    transition: 0.4s;
+    border: none;
+    text-align: center;
+}
+.boton-ninja:hover{
+    cursor:pointer;
+    width: 195px;
+    height: 80px;
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    font-family: "Carter One", sans-serif;
+    box-shadow: 9px 12px 14px 7px #29335c;
+    transition: 0.2s;
+}
+
+input:checked + label{
+    width: 185px;
+    background: radial-gradient(
+        #30e2ff,
+        #28282f
+    );
+    color: black;
+    box-shadow: 0 0 10px #000,
+                0 0 20px #000,
+                0 0 30px #000,
+                0 0 40px #000,
+                0 0 50px #000;
+    transition: 0.3s;
+    margin: 7px;
+    border-radius: 12px;
+}
+
+/* Selecionar Ataque */
+#selecionar-ataque{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #272727;
+    height: 100%;
+}
+
+.boton-de-ataque{
+    width: 105px;
+    height: 40px;
+    box-shadow: 7px 10px 12px 5px #29335c;
+    text-shadow: 5px 5px #424e7a;
+    margin: 7px;
+    background-color: #6ECCAF;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+
+/* Reiniciar */
+
+#boton-reiniciar{
+    font-family: "Carter One", sans-serif;;
+    width: 170px;
+    height: 45px;
+    background: linear-gradient(
+        #0e50ca,
+        #42619b
+    );
+    box-shadow: 7px 10px 12px 5px #29335c;
+    transition: 0.6s;
+    border: none;
+    border-radius: 8px;
+}
+#boton-reiniciar:hover{
+    font-family: "Carter One", sans-serif;;
+    width: 200px;
+    height: 70px;
+    background: linear-gradient(
+        #427ff0,
+        #08368a
+    );
+    box-shadow: 7px 10px 12px 5px #29335c;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+#reiniciar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+@media(max-width: 1024px){
+    body{
+        font-family: "Carter One", sans-serif;
+        background: linear-gradient(
+            45deg,
+            #153eaf,
+            #088db6b6
+        ) center fixed;
+        background-size: cover;
+    }
+
+    #next{
+        background: radial-gradient(
+            #1555cc,
+            #0b85aab6
+        );
+        width: 140px;
+        height: 40px;
+        transition: 0.4s;
+        border: none;
+        border-radius: 20px;
+    }
+    #next:hover{
+        background: radial-gradient(
+            #0b9bc7b6,
+            #1846c7
+        );
+        width: 180px;
+        height: 65px;
+        transition: 0.3s;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .tarjetas{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #selecionar-ataque{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tarjeta-ninja{
+        width: 120px;
+        height: 85px;
+        background: linear-gradient(
+            #1037a1,
+            #067799b6
+        );
+        color: white;
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 5px;
+        border-radius: 12px;
+        border: none;
+        display: flex;
+        box-shadow: none;
+        transition: 0.5s;
+    }
+    .tarjeta-ninja:hover{
+        width: 125px;
+        height: 90px;
+        background: linear-gradient(
+            #088db6b6,
+            #153eaf
+        );
+        padding: 10px;
+        box-sizing: border-box;
+        margin: 10px;
+        border-radius: 12px;
+        border: none;
+        display: flex;
+        cursor: pointer;
+        color: #0D4C92;
+        align-items: center;
+        justify-content: center;
+        box-shadow: none;
+        transition: 0.6s;
+    }
+    input:checked + label{
+        width: 185px;
+        background: radial-gradient(
+            #1764bd,
+            #404258
+        );
+        color: black;
+        box-shadow: 4px black;
+        transition: 0.3s
+    }
+    .imgs{
+        width: 55px;
+    }
+}
