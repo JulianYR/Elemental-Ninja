@@ -216,7 +216,7 @@ function iniciarJuego(){
 
     botonRayo.addEventListener("click", ataqueRayo)
 
-    boton_restart.addEventListener("click", restartJuego)
+    botonRestart.addEventListener("click", restartJuego)
 }
 
 function mostrarHabilidad(element){
