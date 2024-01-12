@@ -1,5 +1,5 @@
 //iniciarJuego
-const seccionSiguiente = document.getElementById("bienvenida")
+const seccionSiguiente = document.getElementById("welcome")
 const next = document.getElementById("next").addEventListener('click', () => {
     seccionSiguiente.style.display = "none"
     seccionSeleccionarNinja.style.display = "flex"
@@ -8,17 +8,17 @@ const next = document.getElementById("next").addEventListener('click', () => {
 
 const sectionBotonNinja = document.getElementById("sectionBotonNinja")
 
-const cancelar = document.getElementById("cancelar")
+const cancel = document.getElementById("cancel")
 
-cancelar.addEventListener('click', () => {
+cancel.addEventListener('click', () => {
     // habilidades
-    divHabilidadHydra.style.display = "none"
-    divHabilidadJeys.style.display = "none"
-    divHabilidadKyrod.style.display = "none"
-    divHabilidadHorus.style.display = "none"
-    divHabilidadKron.style.display = "none"
-    divHabilidadkoryu.style.display = "none"
-    divHabilidadWalker.style.display = "none"
+    divhabilityHydra.style.display = "none"
+    divhabilityJeys.style.display = "none"
+    divhabilityKyrod.style.display = "none"
+    divhabilityHorus.style.display = "none"
+    divhabilityKron.style.display = "none"
+    divhabilitykoryu.style.display = "none"
+    divhabilityWalker.style.display = "none"
 
     // otro
     divHydra.style.display = "flex"
@@ -30,20 +30,20 @@ cancelar.addEventListener('click', () => {
     divWalker.style.display = "flex"
 
     // final
-    cancelar.style.display = "none"
+    cancel.style.display = "none"
 })
 
 // Seccion de ataques
 
-const seccionSeleccionarAtaque = document.getElementById("selecionar-ataque")
-const seccionReiniciar = document.getElementById("reiniciar")
+const seccionSeleccionarAtaque = document.getElementById("selectAttack")
+const seccionRestart = document.getElementById("restart")
 const botonNinjaJugador = document.getElementById("boton-ninja")
 const botonFuego = document.getElementById("boton-fuego")
 const botonAgua = document.getElementById("boton-agua")
 const botonTierra = document.getElementById("boton-tierra")
 const botonMeteoro = document.getElementById("boton-meteoro")
 const botonRayo = document.getElementById("boton-rayo")
-const boton_reiniciar = document.getElementById("reiniciar")
+const boton_restart = document.getElementById("restart")
 
 // Divs de presonajes
 
@@ -57,17 +57,17 @@ const divWalker = document.getElementById("walker")
 
 // Descripcion de Habilidades
 
-const divHabilidadHydra = document.getElementById("habilidadHydra")
-const divHabilidadJeys = document.getElementById("habilidadJeys")
-const divHabilidadKyrod = document.getElementById("habilidadKyrod")
-const divHabilidadHorus = document.getElementById("habilidadHorus")
-const divHabilidadKron = document.getElementById("habilidadKron")
-const divHabilidadkoryu = document.getElementById("habilidadkoryu")
-const divHabilidadWalker = document.getElementById("habilidadWalker")
+const divhabilityHydra = document.getElementById("habilityHydra")
+const divhabilityJeys = document.getElementById("habilityJeys")
+const divhabilityKyrod = document.getElementById("habilityKyrod")
+const divhabilityHorus = document.getElementById("habilityHorus")
+const divhabilityKron = document.getElementById("habilityKron")
+const divhabilitykoryu = document.getElementById("habilitykoryu")
+const divhabilityWalker = document.getElementById("habilityWalker")
 
 //seleccionarNinjaJugador
 
-const seccionSeleccionarNinja = document.getElementById("selecionar-ninja")
+const seccionSeleccionarNinja = document.getElementById("selectNinja")
 const spanNinja = document.getElementById("ninja")
 
 
@@ -182,27 +182,27 @@ function iniciarJuego(){
 
     seccionSeleccionarNinja.style.display = "none"
 
-    cancelar.style.display = "none"
+    cancel.style.display = "none"
 
     sectionBotonNinja.style.display = "none"
 
     seccionSeleccionarAtaque.style.display = "none"
 
-    seccionReiniciar.style.display = "none"
+    seccionRestart.style.display = "none"
 
-    divHabilidadHydra.style.display = "none"
+    divhabilityHydra.style.display = "none"
 
-    divHabilidadJeys.style.display = "none"
+    divhabilityJeys.style.display = "none"
 
-    divHabilidadKyrod.style.display = "none"
+    divhabilityKyrod.style.display = "none"
 
-    divHabilidadHorus.style.display = "none"
+    divhabilityHorus.style.display = "none"
 
-    divHabilidadKron.style.display = "none"
+    divhabilityKron.style.display = "none"
 
-    divHabilidadkoryu.style.display = "none"
+    divhabilitykoryu.style.display = "none"
 
-    divHabilidadWalker.style.display = "none"
+    divhabilityWalker.style.display = "none"
 
     botonNinjaJugador.addEventListener("click", seleccionarNinjaJugador)
 
@@ -216,59 +216,59 @@ function iniciarJuego(){
 
     botonRayo.addEventListener("click", ataqueRayo)
 
-    boton_reiniciar.addEventListener("click", reiniciarJuego)
+    boton_restart.addEventListener("click", restartJuego)
 }
 
 function mostrarHabilidad(element){
     if (element == "hydra"){ //Hidra💧
-        divHabilidadHydra.style.display = "flex"
+        divhabilityHydra.style.display = "flex"
         divJeys.style.display = "none"
         divKyrod.style.display = "none"
         divHorus.style.display = "none"
         divKron.style.display = "none"
         divkoryu.style.display = "none"
         divWalker.style.display = "none"
-        cancelar.style.display = "flex"
+        cancel.style.display = "flex"
     }
     else if (element == "jeys"){ //Jeys🌱
         divHydra.style.display = "none"
-        divHabilidadJeys.style.display = "flex"
+        divhabilityJeys.style.display = "flex"
         divKyrod.style.display = "none"
         divHorus.style.display = "none"
         divKron.style.display = "none"
         divkoryu.style.display = "none"
         divWalker.style.display = "none"
-        cancelar.style.display = "flex"
+        cancel.style.display = "flex"
     }
     else if (element == "kyrod"){ //Kyrod🔥
         divHydra.style.display = "none"
         divJeys.style.display = "none"
-        divHabilidadKyrod.style.display = "flex"
+        divhabilityKyrod.style.display = "flex"
         divHorus.style.display = "none"
         divKron.style.display = "none"
         divkoryu.style.display = "none"
         divWalker.style.display = "none"
-        cancelar.style.display = "flex"
+        cancel.style.display = "flex"
     }
     else if (element == "horus"){ //Horus🌌
         divHydra.style.display = "none"
         divJeys.style.display = "none"
         divKyrod.style.display = "none"
-        divHabilidadHorus.style.display = "flex"
+        divhabilityHorus.style.display = "flex"
         divKron.style.display = "none"
         divkoryu.style.display = "none"
         divWalker.style.display = "none"
-        cancelar.style.display = "flex"
+        cancel.style.display = "flex"
     }
     else if (element == "kron"){ //Kron🍁
         divHydra.style.display = "none"
         divJeys.style.display = "none"
         divKyrod.style.display = "none"
         divHorus.style.display = "none"
-        divHabilidadKron.style.display = "flex"
+        divhabilityKron.style.display = "flex"
         divkoryu.style.display = "none"
         divWalker.style.display = "none"
-        cancelar.style.display = "flex"
+        cancel.style.display = "flex"
     }
     else if (element == "koryu"){ //Koryu💎
         divHydra.style.display = "none"
@@ -276,9 +276,9 @@ function mostrarHabilidad(element){
         divKyrod.style.display = "none"
         divHorus.style.display = "none"
         divKron.style.display = "none"
-        divHabilidadkoryu.style.display = "flex"
+        divhabilitykoryu.style.display = "flex"
         divWalker.style.display = "none"
-        cancelar.style.display = "flex"
+        cancel.style.display = "flex"
     }
     else if (element == "walker"){ //Walker🎃
         divHydra.style.display = "none"
@@ -287,8 +287,8 @@ function mostrarHabilidad(element){
         divHorus.style.display = "none"
         divKron.style.display = "none"
         divkoryu.style.display = "none"
-        divHabilidadWalker.style.display = "flex"
-        cancelar.style.display = "flex"
+        divhabilityWalker.style.display = "flex"
+        cancel.style.display = "flex"
     }
     else {
         return ;
@@ -701,7 +701,7 @@ function crearMensajeFinal(final){
     botonMeteoro.disabled = true
     botonRayo.disabled = true
     
-    seccionReiniciar.style.display = "flex"
+    seccionRestart.style.display = "flex"
 
 }
 
@@ -713,7 +713,7 @@ function crearMensaje(resultado){
     seccionMensajes.appendChild(parrafo)
 }
 
-function reiniciarJuego(){
+function restartJuego(){
     location.reload()
 }
 
