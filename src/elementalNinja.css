@@ -242,7 +242,7 @@ input:checked + label{
 
 /* restart */
 
-#botonrestart{
+#botonRestart{
     font-family: "Carter One", sans-serif;;
     width: 170px;
     height: 45px;
@@ -255,7 +255,7 @@ input:checked + label{
     border: none;
     border-radius: 8px;
 }
-#botonrestart:hover{
+#botonRestart:hover{
     font-family: "Carter One", sans-serif;;
     width: 200px;
     height: 70px;

@@ -43,7 +43,7 @@ const botonAgua = document.getElementById("boton-agua")
 const botonTierra = document.getElementById("boton-tierra")
 const botonMeteoro = document.getElementById("boton-meteoro")
 const botonRayo = document.getElementById("boton-rayo")
-const boton_restart = document.getElementById("restart")
+const botonRestart = document.getElementById("restart")
 
 // Divs de presonajes
 
@@ -73,16 +73,16 @@ const spanNinja = document.getElementById("ninja")
 
 //seleccionarNinjaEnemigo
 
-const spanNinjaEnemigo = document.getElementById("ninja-enemigo")
+const spanNinjaEnemigo = document.getElementById("ninjaEnemy")
 
 //combate
 
-const spanVidasJugador = document.getElementById("vidas-jugador")
-const spanVidasEnemigo = document.getElementById("vidas-enemigo")
+const spanVidasJugador = document.getElementById("playerLives")
+const spanVidasEnemigo = document.getElementById("enemyLives")
 
 //crearMensaje
 
-const seccionMensajes = document.getElementById("mensajes")
+const seccionmessages = document.getElementById("messages")
 
 //crearMensajeFinal.......
 
@@ -693,7 +693,7 @@ function crearMensajeFinal(final){
     let parrafo = document.createElement("p")
     parrafo.innerHTML = final
 
-    seccionMensajes.appendChild(parrafo)
+    seccionmessages.appendChild(parrafo)
 
     botonFuego.disabled = true
     botonAgua.disabled = true
@@ -710,7 +710,7 @@ function crearMensaje(resultado){
     let parrafo = document.createElement("p")
     parrafo.innerHTML = "TU: " + ataqueJugador + ", RIVAL: " + ataqueEnemigo + " - " + resultado
 
-    seccionMensajes.appendChild(parrafo)
+    seccionmessages.appendChild(parrafo)
 }
 
 function restartJuego(){
