@@ -68,6 +68,7 @@ body{
 }
 .typed{
     font-family: 'Cairo', sans-serif;
+    text-align: center;
 }
 #next{
     background: radial-gradient(
@@ -176,7 +177,7 @@ input{
     align-items: center;
 }
 
-.boton-ninja{
+.botonNinja{
     background-color: #6B728E;
     color: black;
     width: 180px;
@@ -188,7 +189,7 @@ input{
     border: none;
     text-align: center;
 }
-.boton-ninja:hover{
+.botonNinja:hover{
     cursor:pointer;
     width: 195px;
     height: 80px;

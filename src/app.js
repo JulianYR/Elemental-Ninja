@@ -2,42 +2,42 @@ function alertAvatar(avatar){
     
     if (avatar === 'hydra'){
         Swal.fire({
-            title: 'Que la fluidez del agua guíe tu camino y disuelva los obstáculos en tu senda silenciosa Novato 🧨'
+            title: 'May the fluidity of water guide your path and dissolve the obstacles on your silent path 🧨'
         })
     }
     else if (avatar === 'jeys'){
         Swal.fire({
-            title: 'Como la tierra, se firme en tu propósito y flexible en tu acción Novato 🔮'
+            title: 'Like the earth, be firm in your purpose and flexible in your action 🔮'
         })
     }
     else if (avatar === 'kyrod'){
         Swal.fire({
-            title: 'Que tu espíritu ardiente ilumine el camino en la sombra y consuma los obstáculos que se interpongan en tu camino hacia la victoria 🔱'
+            title: 'May your fiery spirit illuminate the path in the shadows and consume the obstacles that stand in your way to victory 🔱'
         })
     }
     else if (avatar === 'horus'){
         Swal.fire({
-            title: 'La fuerza del universo fluye a través de tí, tu espíritu ninja despierta su poder elemental 🧿'
+            title: 'The force of the universe flows through you, your ninja spirit awakens its elemental power 🧿'
         })
     }
     else if (avatar === 'kron'){
         Swal.fire({
-            title: 'Que el viento sea tu guía mientras bailas entre las sombras y desatas tu poder ⛓️'
+            title: 'May the wind be your guide as you dance among the shadows and unleash your power ⛓️'
         })
     }
     else if (avatar === 'koryu'){
         Swal.fire({
-            title: 'Brilla con la fuerza de mil diamantes y corta con la precisión del viento 🧬'
+            title: 'Shines with the strength of a thousand diamonds and cuts with the precision of the wind ⛈️'
         })
     }
     else if (avatar === 'walker'){
         Swal.fire({
-            title: 'Tu sigilo es tu fuerza, tú presencia un misterio 🪬'
+            title: 'Your stealth is your strength, you witness a mystery 🪬'
         })
     }
     else {
         Swal.fire({
-            title: 'Elije un avatar, novato 💥'
+            title: 'Choose a Ninja 💥'
         })
     }
 

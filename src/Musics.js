@@ -2,17 +2,17 @@ let seleccion = new Audio()
 seleccion.src = "./music/musicWar.mp3"
 
 
-let disparoFuego = new Audio()
-disparoFuego.src = "./music/disparoFuego.mp3"
+let shootingFuego = new Audio()
+shootingFuego.src = "./music/shootingFuego.mp3"
 
-let disparoAgua = new Audio()
-disparoAgua.src = "./music/disparoAgua.mp3"
+let shootingAgua = new Audio()
+shootingAgua.src = "./music/shootingAgua.mp3"
 
-let disparoTierra = new Audio()
-disparoTierra.src = "./music/disparoTierra.mp3"
+let shootingTierra = new Audio()
+shootingTierra.src = "./music/shootingTierra.mp3"
 
-let disparoFugaz = new Audio()
-disparoFugaz.src = "./music/disparoFugaz.mp3"
+let shootingFugaz = new Audio()
+shootingFugaz.src = "./music/shootingFugaz.mp3"
 
-let disparoRayo = new Audio()
-disparoRayo.src = "./music/disparoRayo.mp3"
+let shootingRayo = new Audio()
+shootingRayo.src = "./music/shootingRayo.mp3"

@@ -1,8 +1,8 @@
-//iniciarJuego
-const seccionSiguiente = document.getElementById("welcome")
+// iniciar juego | start game
+const sectionNext = document.getElementById("welcome")
 const next = document.getElementById("next").addEventListener('click', () => {
-    seccionSiguiente.style.display = "none"
-    seccionSeleccionarNinja.style.display = "flex"
+    sectionNext.style.display = "none"
+    sectionSelectNinja.style.display = "flex"
     sectionBotonNinja.style.display = "flex"
 })
 
@@ -11,7 +11,7 @@ const sectionBotonNinja = document.getElementById("sectionBotonNinja")
 const cancel = document.getElementById("cancel")
 
 cancel.addEventListener('click', () => {
-    // habilidades
+    // skills | habilidades
     divhabilityHydra.style.display = "none"
     divhabilityJeys.style.display = "none"
     divhabilityKyrod.style.display = "none"
@@ -20,7 +20,7 @@ cancel.addEventListener('click', () => {
     divhabilitykoryu.style.display = "none"
     divhabilityWalker.style.display = "none"
 
-    // otro
+    // other | otro
     divHydra.style.display = "flex"
     divJeys.style.display = "flex"
     divKyrod.style.display = "flex"
@@ -33,11 +33,11 @@ cancel.addEventListener('click', () => {
     cancel.style.display = "none"
 })
 
-// Seccion de ataques
+// Attacks section | Seccion de ataques
 
-const seccionSeleccionarAtaque = document.getElementById("selectAttack")
+const sectionSelectAttack = document.getElementById("selectAttack")
 const seccionRestart = document.getElementById("restart")
-const botonNinjaJugador = document.getElementById("boton-ninja")
+const botonNinjaJugador = document.getElementById("botonNinja")
 const botonFuego = document.getElementById("boton-fuego")
 const botonAgua = document.getElementById("boton-agua")
 const botonTierra = document.getElementById("boton-tierra")
@@ -45,7 +45,7 @@ const botonMeteoro = document.getElementById("boton-meteoro")
 const botonRayo = document.getElementById("boton-rayo")
 const botonRestart = document.getElementById("restart")
 
-// Divs de presonajes
+// Character divs | Divs de personajes
 
 const divHydra = document.getElementById("hydra")
 const divJeys = document.getElementById("jeys")
@@ -55,7 +55,7 @@ const divKron = document.getElementById("kron")
 const divkoryu = document.getElementById("koryu")
 const divWalker = document.getElementById("walker")
 
-// Descripcion de Habilidades
+// Skills Description | Descripcion de Habilidades
 
 const divhabilityHydra = document.getElementById("habilityHydra")
 const divhabilityJeys = document.getElementById("habilityJeys")
@@ -65,57 +65,60 @@ const divhabilityKron = document.getElementById("habilityKron")
 const divhabilitykoryu = document.getElementById("habilitykoryu")
 const divhabilityWalker = document.getElementById("habilityWalker")
 
-//seleccionarNinjaJugador
+// select ninja player | seleccionar ninja jugador
 
-const seccionSeleccionarNinja = document.getElementById("selectNinja")
+const sectionSelectNinja = document.getElementById("selectNinja")
 const spanNinja = document.getElementById("ninja")
 
 
-//seleccionarNinjaEnemigo
+// select enemy ninja | seleccionar ninja enemigo
 
-const spanNinjaEnemigo = document.getElementById("ninjaEnemy")
+const spanNinjaEnemy = document.getElementById("ninjaEnemy")
 
-//combate
+// combat | combate
 
-const spanVidasJugador = document.getElementById("playerLives")
-const spanVidasEnemigo = document.getElementById("enemyLives")
+const spanLivesPlayer = document.getElementById("playerLives")
+const spanLivesEnemy = document.getElementById("enemyLives")
 
-//crearMensaje
+// create message | crear mensaje
 
-const seccionmessages = document.getElementById("messages")
+const sectionMessages = document.getElementById("messages")
 
-//crearMensajeFinal.......
+//createMessageFinal.......
 
 //HTML
 
-let ataqueJugador
-let ataqueEnemigo
+let attackPlayer
+let attackEnemy
 
 /* 
+
+    Español - Spanish
+
     Habilidades
 
     - Hydra: Blindado
-    Disminuye el daño en un 8%
+    Disminuye el damage en un 8%
 
     - Jeys: Escudo
-    Añade un escudo de 15 de PV ante el primer impacto
+    Añade un escudo de 15 de HP ante el primer impacto
 
     - Kyrod: Ira Dominante
-    Aumenta el daño un 7.5%
+    Aumenta el damage un 7.5%
 
     - Horus: Segunda oportunidad
-    Si tu PV es menor a 50 recupera 15 de Pv (Uso maximo por partida 1 vez)
+    Si tu HP es menor a 50 recupera 15 de HP (Uso maximo por partida 1 vez)
 
     - Kron: Ultimo Recurso
-    Cuando tu PV sea menor a 30 el daño aumenta un 25% ante un impacto (Uso maximo 1 vez)
+    Cuando tu HP sea menor a 30 el damage aumenta un 25% ante un impacto (Uso maximo 1 vez)
 
     - koryu: Rafagas
-    Los ataques de Meteoro aumentan el daño un 13% (Uso maximo 4 veces)
+    Los ataques de Meteoro aumentan el damage un 13% (Uso maximo 4 veces)
 
     - Walker: Privilegio
-    El daño aumenta un 20% si el PV del enemigo es menor a 65
+    El damage aumenta un 20% si el HP del enemigo es menor a 65
 
-    Variantes del Daño
+    Variantes del damage
 
     - Fuego
     33-35
@@ -132,36 +135,80 @@ let ataqueEnemigo
     - Fugaz
     20-23
 
+
+
+    English - Inglés
+
+    Skills
+
+    - Hydra: Armored
+    Decreases damage by 8%
+
+    - Jeys: Shield
+    Adds a 15 HP shield on first hit
+
+    - Kyrod: Dominant Rage
+    Increases damage by 7.5%
+
+    - Horus: Second Chance
+    If your HP is less than 50, recover 15 HP (Maximum use per game 1 time)
+
+    - Kron: Last Resort
+    When your HP is less than 30, the damage increases by 25% upon impact (Maximum use 1 time)
+
+    - koryu: Gusts
+    Meteor attacks increase damage by 13% (Maximum use 4 times)
+
+    - Walker: Privilege
+    Damage increases by 20% if the enemy's HP is less than 65
+
+    Damage Variants
+
+    - Fire
+    33-35
+
+    - Water
+    30-32
+
+    - Ray
+    27-29
+
+    -Land
+    24-26
+
+    - Fleeting
+    20-23
+
 */
 
-let daño
-let dañoHability
-let dañoEnemigo
+let damage
+let damageHability
+let damageEnemy
 let habilityJeys = false
 let habilityHorus = false
 let habilityKron = false
 let habilityDreyKroyu = 0
 
 let hydra = document.getElementById("hydra").addEventListener('click', () => {
-    mostrarHabilidad('hydra');
+    showSkill('hydra')
 });
 let jeys = document.getElementById("jeys").addEventListener('click', () => {
-    mostrarHabilidad('jeys')
+    showSkill('jeys')
 })
 let kyrod = document.getElementById("kyrod").addEventListener('click', () => {
-    mostrarHabilidad('kyrod')
+    showSkill('kyrod')
 })
 let horus = document.getElementById("horus").addEventListener('click', () => {
-    mostrarHabilidad('horus')
+    showSkill('horus')
 })
 let kron = document.getElementById("kron").addEventListener('click', () => {
-    mostrarHabilidad('kron')
+    showSkill('kron')
 })
 let koryu = document.getElementById("koryu").addEventListener('click', () => {
-    mostrarHabilidad('koryu')
+    showSkill('koryu')
 })
 let walker = document.getElementById("walker").addEventListener('click', () => {
-    mostrarHabilidad('walker')
+    showSkill('walker')
 })
 
 
@@ -175,18 +222,18 @@ const inputKron = document.getElementById("Kron🍁")
 const inputkoryu = document.getElementById("Koryu💎")
 const inputWalker = document.getElementById("Walker🎃")
 
-let pvJugador = 200
-let pvEnemigo = 200
+let hpPlayer = 200
+let hpEnemy = 200
 
-function iniciarJuego(){
+function startGame(){
 
-    seccionSeleccionarNinja.style.display = "none"
+    sectionSelectNinja.style.display = "none"
 
     cancel.style.display = "none"
 
     sectionBotonNinja.style.display = "none"
 
-    seccionSeleccionarAtaque.style.display = "none"
+    sectionSelectAttack.style.display = "none"
 
     seccionRestart.style.display = "none"
 
@@ -204,22 +251,22 @@ function iniciarJuego(){
 
     divhabilityWalker.style.display = "none"
 
-    botonNinjaJugador.addEventListener("click", seleccionarNinjaJugador)
+    botonNinjaJugador.addEventListener("click", selectNinjaPlayer)
 
-    botonFuego.addEventListener("click", ataqueFuego)
+    botonFuego.addEventListener("click", attackFuego)
 
-    botonAgua.addEventListener("click", ataqueAgua)
+    botonAgua.addEventListener("click", attackAgua)
 
-    botonTierra.addEventListener("click", ataqueTierra)
+    botonTierra.addEventListener("click", attackTierra)
 
-    botonMeteoro.addEventListener("click", ataqueMeteoro)
+    botonMeteoro.addEventListener("click", attackMeteoro)
 
-    botonRayo.addEventListener("click", ataqueRayo)
+    botonRayo.addEventListener("click", attackRayo)
 
-    botonRestart.addEventListener("click", restartJuego)
+    botonRestart.addEventListener("click", restartGame)
 }
 
-function mostrarHabilidad(element){
+function showSkill(element){
     if (element == "hydra"){ //Hidra💧
         divhabilityHydra.style.display = "flex"
         divJeys.style.display = "none"
@@ -295,7 +342,7 @@ function mostrarHabilidad(element){
     }
 }
 
-function seleccionarNinjaJugador(){
+function selectNinjaPlayer(){
 
 
     if(inputHidra.checked){
@@ -338,117 +385,117 @@ function seleccionarNinjaJugador(){
         return
     }
 
-    seccionSeleccionarNinja.style.display = "none"
+    sectionSelectNinja.style.display = "none"
 
-    seccionSeleccionarAtaque.style.display = "flex"
+    sectionSelectAttack.style.display = "flex"
 
-    seleccionarNinjaEnemigo()
+    selectNinjaEnemy()
 }
 
-function seleccionarNinjaEnemigo(){
-    let enemigoAleatorio = aleatorio(0, 5)
+function selectNinjaEnemy(){
+    let enemyRandom = random(0, 5)
 
-    if (enemigoAleatorio == 0){
-        spanNinjaEnemigo.innerHTML = 'Hidra💧'
+    if (enemyRandom == 0){
+        spanNinjaEnemy.innerHTML = 'Hidra💧'
     }
-    else if (enemigoAleatorio == 1){
-        spanNinjaEnemigo.innerHTML = 'Jeys🌱'
+    else if (enemyRandom == 1){
+        spanNinjaEnemy.innerHTML = 'Jeys🌱'
     }
-    else if (enemigoAleatorio == 2){
-        spanNinjaEnemigo.innerHTML = 'Kyrod🔥'
+    else if (enemyRandom == 2){
+        spanNinjaEnemy.innerHTML = 'Kyrod🔥'
     }
-    else if (enemigoAleatorio == 3){
-        spanNinjaEnemigo.innerHTML = 'Horus🌌'
+    else if (enemyRandom == 3){
+        spanNinjaEnemy.innerHTML = 'Horus🌌'
     }
-    else if (enemigoAleatorio == 4){
-        spanNinjaEnemigo.innerHTML = 'Kron🍁'
+    else if (enemyRandom == 4){
+        spanNinjaEnemy.innerHTML = 'Kron🍁'
     }
-    else if (enemigoAleatorio == 5){
-        spanNinjaEnemigo.innerHTML = 'Walker🎃'
+    else if (enemyRandom == 5){
+        spanNinjaEnemy.innerHTML = 'Walker🎃'
     }
 
-}
-
-function ataqueFuego(){
-    ataqueJugador = "🔥"
-    daño = aleatorio(32, 35)
-    ataqueAleatorioEnemigo()
-}
-function ataqueAgua(){
-    ataqueJugador = "💧"
-    daño = aleatorio(30, 32)
-    ataqueAleatorioEnemigo()
-}
-function ataqueTierra(){
-    ataqueJugador = "🌱"
-    daño = aleatorio(24, 26)
-    ataqueAleatorioEnemigo()
-}
-function ataqueMeteoro(){
-    ataqueJugador = "☄️"
-    daño = aleatorio(20, 23)
-    ataqueAleatorioEnemigo()
-}
-function ataqueRayo(){
-    ataqueJugador = "⚡"
-    daño = aleatorio(27, 29)
-    ataqueAleatorioEnemigo()
 }
 
-function ataqueAleatorioEnemigo(){
-    let ataqueAleatorio = aleatorio(1,5)
+function attackFuego(){
+    attackPlayer = "🔥"
+    damage = random(32, 35)
+    attackRandomEnemy()
+}
+function attackAgua(){
+    attackPlayer = "💧"
+    damage = random(30, 32)
+    attackRandomEnemy()
+}
+function attackTierra(){
+    attackPlayer = "🌱"
+    damage = random(24, 26)
+    attackRandomEnemy()
+}
+function attackMeteoro(){
+    attackPlayer = "☄️"
+    damage = random(20, 23)
+    attackRandomEnemy()
+}
+function attackRayo(){
+    attackPlayer = "⚡"
+    damage = random(27, 29)
+    attackRandomEnemy()
+}
 
-    if (ataqueAleatorio == 1){
-        ataqueEnemigo = "🔥"
-        dañoEnemigo = aleatorio(32, 35)
+function attackRandomEnemy(){
+    let attackRandom = random(1,5)
+
+    if (attackRandom == 1){
+        attackEnemy = "🔥"
+        damageEnemy = random(32, 35)
     }
-    else if (ataqueAleatorio == 2){
-        ataqueEnemigo = "💧"
-        dañoEnemigo = aleatorio(30, 32)
+    else if (attackRandom == 2){
+        attackEnemy = "💧"
+        damageEnemy = random(30, 32)
     } 
-    else if (ataqueAleatorio == 3){
-        ataqueEnemigo = "🌱"
-        dañoEnemigo = aleatorio(24, 26)
+    else if (attackRandom == 3){
+        attackEnemy = "🌱"
+        damageEnemy = random(24, 26)
     }
-    else if(ataqueAleatorio == 4){
-        ataqueEnemigo = "☄️"
-        dañoEnemigo= aleatorio(20, 23)
+    else if(attackRandom == 4){
+        attackEnemy = "☄️"
+        damageEnemy= random(20, 23)
     }
     else {
-        ataqueEnemigo = "⚡"
-        dañoEnemigo = aleatorio(27, 29)
+        attackEnemy = "⚡"
+        damageEnemy = random(27, 29)
     }
-    combate()
+    combat()
 }
 
-function combate(){
+function combat(){
 
     // Hydra
 
     if (spanNinja.innerHTML == "Hidra💧") {
-        if (ataqueEnemigo == ataqueJugador) {
-            crearMensaje("EMPATE 🥈");
+        if (attackEnemy == attackPlayer) {
+            createMessage("It's a TIE 🥈");
         }
         else if (
-            (ataqueJugador == "🔥" && (ataqueEnemigo == "🌱" || ataqueEnemigo == "⚡" || ataqueEnemigo == "☄️")) ||
-            (ataqueJugador == "💧" && (ataqueEnemigo == "🔥" || ataqueEnemigo == "⚡" || ataqueEnemigo == "🌱")) ||
-            (ataqueJugador == "🌱" && (ataqueEnemigo == "💧" || ataqueEnemigo == "⚡" || ataqueEnemigo == "☄️")) ||
-            (ataqueJugador == "☄️" && (ataqueEnemigo == "💧" || ataqueEnemigo == "🌱")) ||
-            (ataqueJugador == "⚡" && ataqueEnemigo == "☄️")
+            (attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
+            (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡" || attackEnemy == "🌱")) ||
+            (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
+            (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱")) ||
+            (attackPlayer == "⚡" && attackEnemy == "☄️")
         ) {
-            crearMensaje("GANASTE 🥇");
-            const result = Math.round(daño);
-            pvEnemigo = pvEnemigo - result;
-            spanVidasEnemigo.innerHTML = pvEnemigo;
+            createMessage("Winner 🥇");
+            const result = Math.round(damage);
+            hpEnemy = hpEnemy - result;
+            spanLivesEnemy.innerHTML = hpEnemy;
         }
         else {
-            crearMensaje("PERDISTE 🥉");
-            dañoHability = dañoEnemigo;
-            dañoHability = (dañoHability * 0.8);
-            dañoEnemigo = dañoEnemigo - dañoHability;
-            const resultEnemy = Math.round(dañoEnemigo);
-            pvJugador = pvJugador - resultEnemy;
-            spanVidasJugador.innerHTML = pvJugador;
+            createMessage("You Lost 🥉");
+            damageHability = damageEnemy;
+            damageHability = (damageHability * 0.8);
+            damageEnemy = damageEnemy - damageHability;
+            const resultEnemy = Math.round(damageEnemy);
+            hpPlayer = hpPlayer - resultEnemy;
+            spanLivesPlayer.innerHTML = hpPlayer;
         }
     }
     
@@ -459,38 +506,38 @@ function combate(){
         let jugadorGana = false;
     
         if (
-            (ataqueJugador == "🔥" && ataqueEnemigo == "🌱") ||
-            (ataqueJugador == "🔥" && ataqueEnemigo == "⚡") ||
-            (ataqueJugador == "🔥" && ataqueEnemigo == "☄️") ||
-            (ataqueJugador == "💧" && ataqueEnemigo == "🔥") ||
-            (ataqueJugador == "💧" && ataqueEnemigo == "⚡") ||
-            (ataqueJugador == "🌱" && ataqueEnemigo == "💧") ||
-            (ataqueJugador == "🌱" && ataqueEnemigo == "⚡") ||
-            (ataqueJugador == "☄️" && ataqueEnemigo == "💧") ||
-            (ataqueJugador == "☄️" && ataqueEnemigo == "🌱") ||
-            (ataqueJugador == "⚡" && ataqueEnemigo == "☄️")
+            (attackPlayer == "🔥" && attackEnemy == "🌱") ||
+            (attackPlayer == "🔥" && attackEnemy == "⚡") ||
+            (attackPlayer == "🔥" && attackEnemy == "☄️") ||
+            (attackPlayer == "💧" && attackEnemy == "🔥") ||
+            (attackPlayer == "💧" && attackEnemy == "⚡") ||
+            (attackPlayer == "🌱" && attackEnemy == "💧") ||
+            (attackPlayer == "🌱" && attackEnemy == "⚡") ||
+            (attackPlayer == "☄️" && attackEnemy == "💧") ||
+            (attackPlayer == "☄️" && attackEnemy == "🌱") ||
+            (attackPlayer == "⚡" && attackEnemy == "☄️")
         ) {
             jugadorGana = true;
         }
     
         if (jugadorGana) {
-            crearMensaje("GANASTE 🥇");
-            const result = Math.round(daño);
-            pvEnemigo = pvEnemigo - result;
-            spanVidasEnemigo.innerHTML = pvEnemigo;
+            createMessage("Winner 🥇");
+            const result = Math.round(damage);
+            hpEnemy = hpEnemy - result;
+            spanLivesEnemy.innerHTML = hpEnemy;
         } 
         else {
-            crearMensaje("PERDISTE 🥉");
+            createMessage("You Lost 🥉");
             if (!habilityJeys) {
-                dañoEnemigo = dañoEnemigo - 15;
-                const resultEnemy = Math.round(dañoEnemigo);
-                pvJugador = pvJugador - resultEnemy;
-                spanVidasJugador.innerHTML = pvJugador;
+                damageEnemy = damageEnemy - 15;
+                const resultEnemy = Math.round(damageEnemy);
+                hpPlayer = hpPlayer - resultEnemy;
+                spanLivesPlayer.innerHTML = hpPlayer;
                 habilityJeys = true;
             } else {
-                const resultEnemy = Math.round(dañoEnemigo);
-                pvJugador = pvJugador - resultEnemy;
-                spanVidasJugador.innerHTML = pvJugador;
+                const resultEnemy = Math.round(damageEnemy);
+                hpPlayer = hpPlayer - resultEnemy;
+                spanLivesPlayer.innerHTML = hpPlayer;
             }
         }
     }
@@ -499,34 +546,34 @@ function combate(){
     // Kyrod
 
     else if (spanNinja.innerHTML === "Kyrod🔥") {
-        if (ataqueEnemigo === ataqueJugador) {
-            crearMensaje("EMPATE 🥈");
+        if (attackEnemy === attackPlayer) {
+            createMessage("It's a TIE 🥈");
         } 
         else if (
-            (ataqueJugador === "🔥" && ataqueEnemigo === "🌱") ||
-            (ataqueJugador === "🔥" && ataqueEnemigo === "⚡") ||
-            (ataqueJugador === "🔥" && ataqueEnemigo === "☄️") ||
-            (ataqueJugador === "💧" && ataqueEnemigo === "🔥") ||
-            (ataqueJugador === "💧" && ataqueEnemigo === "⚡") ||
-            (ataqueJugador === "🌱" && ataqueEnemigo === "💧") ||
-            (ataqueJugador === "🌱" && ataqueEnemigo === "⚡") ||
-            (ataqueJugador === "☄️" && ataqueEnemigo === "💧") ||
-            (ataqueJugador === "☄️" && ataqueEnemigo === "🌱") ||
-            (ataqueJugador === "⚡" && ataqueEnemigo === "☄️")
+            (attackPlayer === "🔥" && attackEnemy === "🌱") ||
+            (attackPlayer === "🔥" && attackEnemy === "⚡") ||
+            (attackPlayer === "🔥" && attackEnemy === "☄️") ||
+            (attackPlayer === "💧" && attackEnemy === "🔥") ||
+            (attackPlayer === "💧" && attackEnemy === "⚡") ||
+            (attackPlayer === "🌱" && attackEnemy === "💧") ||
+            (attackPlayer === "🌱" && attackEnemy === "⚡") ||
+            (attackPlayer === "☄️" && attackEnemy === "💧") ||
+            (attackPlayer === "☄️" && attackEnemy === "🌱") ||
+            (attackPlayer === "⚡" && attackEnemy === "☄️")
         ) {
-            crearMensaje("GANASTE 🥇");
-            dañoHability = daño;
-            dañoHability = (dañoHability * 7.5) / 100;
-            daño = daño + dañoHability;
-            const result = Math.round(daño)
-            pvEnemigo = pvEnemigo - result;
-            spanVidasEnemigo.innerHTML = pvEnemigo;
+            createMessage("Winner 🥇");
+            damageHability = damage;
+            damageHability = (damageHability * 7.5) / 100;
+            damage = damage + damageHability;
+            const result = Math.round(damage)
+            hpEnemy = hpEnemy - result;
+            spanLivesEnemy.innerHTML = hpEnemy;
         } 
         else {
-            crearMensaje("PERDISTE 🥉");
-            const resultEnemy = Math.round(dañoEnemigo)
-            pvJugador = pvJugador - resultEnemy;
-            spanVidasJugador.innerHTML = pvJugador;
+            createMessage("You Lost 🥉");
+            const resultEnemy = Math.round(damageEnemy)
+            hpPlayer = hpPlayer - resultEnemy;
+            spanLivesPlayer.innerHTML = hpPlayer;
         }
     }
 
@@ -534,30 +581,30 @@ function combate(){
     // Horus
 
     else if (spanNinja.innerHTML == "Horus🌌") {
-        if (ataqueEnemigo == ataqueJugador) {
-            crearMensaje("EMPATE 🥈");
+        if (attackEnemy == attackPlayer) {
+            createMessage("It's a TIE 🥈");
         } 
         else {
-            const result = Math.round(daño);
+            const result = Math.round(damage);
             
-            if ((ataqueJugador == "🔥" && (ataqueEnemigo == "🌱" || ataqueEnemigo == "⚡" || ataqueEnemigo == "☄️")) ||
-                (ataqueJugador == "💧" && (ataqueEnemigo == "🔥" || ataqueEnemigo == "⚡")) ||
-                (ataqueJugador == "🌱" && (ataqueEnemigo == "💧" || ataqueEnemigo == "⚡")) ||
-                (ataqueJugador == "☄️" && (ataqueEnemigo == "💧" || ataqueEnemigo == "🌱")) ||
-                (ataqueJugador == "⚡" && ataqueEnemigo == "☄️")) {
-                crearMensaje("GANASTE 🥇");
-                pvEnemigo -= result;
-                spanVidasEnemigo.innerHTML = pvEnemigo;
+            if ((attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
+                (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡")) ||
+                (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡")) ||
+                (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱")) ||
+                (attackPlayer == "⚡" && attackEnemy == "☄️")) {
+                createMessage("Winner 🥇");
+                hpEnemy -= result;
+                spanLivesEnemy.innerHTML = hpEnemy;
             } else {
-                crearMensaje("PERDISTE 🥉");
-                const resultEnemy = Math.round(dañoEnemigo);
-                pvJugador -= result;
-                spanVidasJugador.innerHTML = pvJugador;
+                createMessage("You Lost 🥉");
+                const resultEnemy = Math.round(damageEnemy);
+                hpPlayer -= result;
+                spanLivesPlayer.innerHTML = hpPlayer;
             }
         }
     
-        if (pvJugador <= 50 && !habilityHorus) {
-            dañoEnemigo -= 15;
+        if (hpPlayer <= 50 && !habilityHorus) {
+            damageEnemy -= 15;
             habilityHorus = true;
         }
     }
@@ -566,37 +613,37 @@ function combate(){
     // Kron
 
     else if (spanNinja.innerHTML == "Kron🍁") {
-        let result = Math.round(daño);
+        let result = Math.round(damage);
         
-        if (ataqueEnemigo == ataqueJugador || (ataqueEnemigo == "☄️" && ataqueJugador == "⚡")) {
-            crearMensaje("EMPATE 🥈");
-        } else if ((ataqueJugador == "🔥" && ataqueEnemigo == "🌱") ||
-                   (ataqueJugador == "🔥" && ataqueEnemigo == "⚡") ||
-                   (ataqueJugador == "🔥" && ataqueEnemigo == "☄️") ||
-                   (ataqueJugador == "💧" && ataqueEnemigo == "🔥") ||
-                   (ataqueJugador == "💧" && ataqueEnemigo == "⚡") ||
-                   (ataqueJugador == "🌱" && ataqueEnemigo == "💧") ||
-                   (ataqueJugador == "🌱" && ataqueEnemigo == "⚡") ||
-                   (ataqueJugador == "☄️" && ataqueEnemigo == "💧") ||
-                   (ataqueJugador == "☄️" && ataqueEnemigo == "🌱") ||
-                   (ataqueJugador == "⚡" && ataqueEnemigo == "☄️")) {
-            crearMensaje("GANASTE 🥇");
+        if (attackEnemy == attackPlayer || (attackEnemy == "☄️" && attackPlayer == "⚡")) {
+            createMessage("It's a TIE 🥈");
+        } else if ((attackPlayer == "🔥" && attackEnemy == "🌱") ||
+                   (attackPlayer == "🔥" && attackEnemy == "⚡") ||
+                   (attackPlayer == "🔥" && attackEnemy == "☄️") ||
+                   (attackPlayer == "💧" && attackEnemy == "🔥") ||
+                   (attackPlayer == "💧" && attackEnemy == "⚡") ||
+                   (attackPlayer == "🌱" && attackEnemy == "💧") ||
+                   (attackPlayer == "🌱" && attackEnemy == "⚡") ||
+                   (attackPlayer == "☄️" && attackEnemy == "💧") ||
+                   (attackPlayer == "☄️" && attackEnemy == "🌱") ||
+                   (attackPlayer == "⚡" && attackEnemy == "☄️")) {
+            createMessage("Winner 🥇");
             
-            if (pvJugador <= 30 && !habilityKron) {
-                let dañoHability = (daño * 25) / 100;
-                daño += dañoHability;
-                result += Math.round(dañoHability);
+            if (hpPlayer <= 30 && !habilityKron) {
+                let damageHability = (damage * 25) / 100;
+                damage += damageHability;
+                result += Math.round(damageHability);
                 habilityKron = true;
             }
             
-            pvEnemigo -= result;
-            spanVidasEnemigo.innerHTML = pvEnemigo;
+            hpEnemy -= result;
+            spanLivesEnemy.innerHTML = hpEnemy;
         } 
         else {
-            crearMensaje("PERDISTE 🥉");
-            let resultEnemy = Math.round(dañoEnemigo);
-            pvJugador -= resultEnemy;
-            spanVidasJugador.innerHTML = pvJugador;
+            createMessage("You Lost 🥉");
+            let resultEnemy = Math.round(damageEnemy);
+            hpPlayer -= resultEnemy;
+            spanLivesPlayer.innerHTML = hpPlayer;
         }
     }
     
@@ -606,31 +653,31 @@ function combate(){
 
     else if (spanNinja.innerHTML == "Koryu💎") {
         if (
-            (ataqueJugador == "🔥" && (ataqueEnemigo == "🌱" || ataqueEnemigo == "⚡" || ataqueEnemigo == "☄️")) ||
-            (ataqueJugador == "💧" && (ataqueEnemigo == "🔥" || ataqueEnemigo == "⚡")) ||
-            (ataqueJugador == "🌱" && (ataqueEnemigo == "💧" || ataqueEnemigo == "⚡")) ||
-            (ataqueJugador == "☄️" && (ataqueEnemigo == "💧" || ataqueEnemigo == "🌱"))
+            (attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
+            (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡")) ||
+            (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡")) ||
+            (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱"))
         ) {
             
-            if (ataqueJugador == "☄️" && habilityDreyKroyu <= 4) {
-                dañoHability = ((daño * 13)/ 100);
-                daño += dañoHability;
+            if (attackPlayer == "☄️" && habilityDreyKroyu <= 4) {
+                damageHability = ((damage * 13)/ 100);
+                damage += damageHability;
                 habilityDreyKroyu++;
             }
     
-            const result = Math.round(daño);
-            pvEnemigo -= result;
-            spanVidasEnemigo.innerHTML = pvEnemigo;
-            crearMensaje("GANASTE 🥇");
+            const result = Math.round(damage);
+            hpEnemy -= result;
+            spanLivesEnemy.innerHTML = hpEnemy;
+            createMessage("Winner 🥇");
         }
-        else if (ataqueEnemigo == ataqueJugador) {
-            crearMensaje("EMPATE 🥈");
+        else if (attackEnemy == attackPlayer) {
+            createMessage("It's a TIE 🥈");
         }
         else {
-            const resultEnemy = Math.round(dañoEnemigo);
-            pvJugador -= resultEnemy;
-            spanVidasJugador.innerHTML = pvJugador;
-            crearMensaje("PERDISTE 🥉");
+            const resultEnemy = Math.round(damageEnemy);
+            hpPlayer -= resultEnemy;
+            spanLivesPlayer.innerHTML = hpPlayer;
+            createMessage("You Lost 🥉");
         }
     }
     
@@ -639,61 +686,61 @@ function combate(){
     // Walker
 
     else if (spanNinja.innerHTML == "Walker🎃") {
-        if (ataqueEnemigo == ataqueJugador) {
-            crearMensaje("EMPATE 🥈");
+        if (attackEnemy == attackPlayer) {
+            createMessage("It's a TIE 🥈");
         } 
         else if (
-            (ataqueJugador == "🔥" && (ataqueEnemigo == "🌱" || ataqueEnemigo == "⚡" || ataqueEnemigo == "☄️")) ||
-            (ataqueJugador == "💧" && (ataqueEnemigo == "🔥" || ataqueEnemigo == "⚡")) ||
-            (ataqueJugador == "🌱" && (ataqueEnemigo == "💧" || ataqueEnemigo == "⚡")) ||
-            (ataqueJugador == "☄️" && (ataqueEnemigo == "💧" || ataqueEnemigo == "🌱"))
+            (attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
+            (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡")) ||
+            (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡")) ||
+            (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱"))
         ) {
-            crearMensaje("GANASTE 🥇");
-            if (pvEnemigo <= 50) {
-                dañoHability = daño * 0.20;
-                daño += dañoHability;
+            createMessage("Winner 🥇");
+            if (hpEnemy <= 50) {
+                damageHability = damage * 0.20;
+                damage += damageHability;
             }
-            const result = Math.round(daño);
-            pvEnemigo -= result;
-            spanVidasEnemigo.innerHTML = pvEnemigo;
+            const result = Math.round(damage);
+            hpEnemy -= result;
+            spanLivesEnemy.innerHTML = hpEnemy;
         }
         else {
-            crearMensaje("PERDISTE 🥉");
-            const resultEnemy = Math.round(dañoEnemigo);
-            pvJugador -= resultEnemy;
-            spanVidasJugador.innerHTML = pvJugador;
+            createMessage("You Lost 🥉");
+            const resultEnemy = Math.round(damageEnemy);
+            hpPlayer -= resultEnemy;
+            spanLivesPlayer.innerHTML = hpPlayer;
         }
     }
     
 
 
-    revisarPV()
+    reviewPV()
 }
 
-function revisarPV(){
+function reviewPV(){
 
-    if (pvJugador > 0 && pvEnemigo <= 0){
-        crearMensajeFinal("FELICITACIONES, GANASTE🏆!")
-        if (pvEnemigo < 0){
-            spanVidasEnemigo.innerHTML = 0
+    if (hpPlayer > 0 && hpEnemy <= 0){
+        createMessageFinal("CONGRATULATIONS, Winner 🏆🎉!")
+        if (hpEnemy < 0){
+            spanLivesEnemy.innerHTML = 0
         }
     }
-    else if (pvEnemigo > 0 && pvJugador <= 0){
-        crearMensajeFinal("Has Fallado😖. Intentalo de nuevo🔂.")
-        if (pvJugador < 0){
-            spanVidasJugador.innerHTML = 0
+    else if (hpEnemy > 0 && hpPlayer <= 0){
+        createMessageFinal("You have failed😖, try again.")
+        if (hpPlayer < 0){
+            spanLivesPlayer.innerHTML = 0
         }
     }
 
 }
 
-function crearMensajeFinal(final){
+function createMessageFinal(final){
     
 
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML = final
+    let paragraph = document.createElement("p")
+    paragraph.innerHTML = final
 
-    seccionmessages.appendChild(parrafo)
+    sectionMessages.appendChild(paragraph)
 
     botonFuego.disabled = true
     botonAgua.disabled = true
@@ -705,20 +752,20 @@ function crearMensajeFinal(final){
 
 }
 
-function crearMensaje(resultado){
+function createMessage(result){
 
-    let parrafo = document.createElement("p")
-    parrafo.innerHTML = "TU: " + ataqueJugador + ", RIVAL: " + ataqueEnemigo + " - " + resultado
+    let paragraph = document.createElement("p")
+    paragraph.innerHTML = "You: " + attackPlayer + ", Enemy: " + attackEnemy + " - " + result
 
-    seccionmessages.appendChild(parrafo)
+    sectionMessages.appendChild(paragraph)
 }
 
-function restartJuego(){
+function restartGame(){
     location.reload()
 }
 
-function aleatorio(min, max){
+function random(min, max){
     return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
-window.addEventListener("load", iniciarJuego)
+window.addEventListener("load", startGame)
