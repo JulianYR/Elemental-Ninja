@@ -33,6 +33,18 @@ cancel.addEventListener('click', () => {
     cancel.style.display = "none"
 })
 
+// Modes section | Seccion de modos
+
+const sectionGameMode = document.getElementById('sectionGameMode')
+const gameModeHP = document.getElementById('gameModeHP')
+gameModeHP.addEventListener('click', () => {
+    selectMode('hp')
+})
+const gameModeVictorys = document.getElementById('gameModeVictorys')
+gameModeVictorys.addEventListener('click', () => {
+    selectMode('victorys')
+})
+
 // Attacks section | Seccion de ataques
 
 const sectionSelectAttack = document.getElementById("selectAttack")
@@ -229,6 +241,8 @@ function startGame(){
 
     sectionSelectNinja.style.display = "none"
 
+    sectionGameMode.style.display = "none"
+
     cancel.style.display = "none"
 
     sectionBotonNinja.style.display = "none"
@@ -387,7 +401,17 @@ function selectNinjaPlayer(){
 
     sectionSelectNinja.style.display = "none"
 
-    sectionSelectAttack.style.display = "flex"
+    sectionGameMode.style.display = "flex"
+
+}
+
+function selectMode(mode){
+    if (mode == 'hp'){
+
+    }
+    else {
+        return
+    }
 
     selectNinjaEnemy()
 }
@@ -413,6 +437,9 @@ function selectNinjaEnemy(){
     else if (enemyRandom == 5){
         spanNinjaEnemy.innerHTML = 'Walker🎃'
     }
+
+    sectionSelectAttack.style.display = "flex"
+    sectionGameMode.style.display = "none"
 
 }
 

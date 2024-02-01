@@ -26,6 +26,12 @@ body{
     justify-content: center;
 }
 
+#sectionGameMode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 .gameModes {
     width: 115px;
     height: 35px;
@@ -33,6 +39,10 @@ body{
     border: none;
     transition: 0.3s;
     margin: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 .gameModes:hover{
     width: 125px;
@@ -46,6 +56,11 @@ body{
                 0 0 25px #333;
     transition: 0.3s;
     cursor: pointer;
+}
+.modes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .divs {
