@@ -193,6 +193,7 @@ let attackEnemy
 
 */
 
+let variableQuery
 let damage
 let damageHability
 let damageEnemy
@@ -235,7 +236,9 @@ const inputkoryu = document.getElementById("Koryu💎")
 const inputWalker = document.getElementById("Walker🎃")
 
 let hpPlayer = 200
+let victorysPlayer = 0
 let hpEnemy = 200
+let victorysEnemy = 0
 
 function startGame(){
 
@@ -407,10 +410,10 @@ function selectNinjaPlayer(){
 
 function selectMode(mode){
     if (mode == 'hp'){
-
+        variableQuery = 'hp'
     }
-    else {
-        return
+    else if (mode == 'victorys'){
+        variableQuery = 'victorys'
     }
 
     selectNinjaEnemy()
@@ -440,6 +443,8 @@ function selectNinjaEnemy(){
 
     sectionSelectAttack.style.display = "flex"
     sectionGameMode.style.display = "none"
+
+    consult(variableQuery)
 
 }
 
@@ -492,10 +497,20 @@ function attackRandomEnemy(){
         attackEnemy = "⚡"
         damageEnemy = random(27, 29)
     }
-    combat()
 }
 
-function combat(){
+function consult(letConsdultF){
+
+    if (letConsdultF == 'hp'){
+        combatHP()
+    }
+    else if (letConsdultF == 'victorys'){
+        combatVictorys()
+    }
+
+}
+
+function combatHP(){
 
     // Hydra
 
@@ -530,7 +545,7 @@ function combat(){
     // Jeys
 
     else if (spanNinja.innerHTML == "Jeys🌱") {
-        let jugadorGana = false;
+        let playerWin = false;
     
         if (
             (attackPlayer == "🔥" && attackEnemy == "🌱") ||
@@ -544,10 +559,10 @@ function combat(){
             (attackPlayer == "☄️" && attackEnemy == "🌱") ||
             (attackPlayer == "⚡" && attackEnemy == "☄️")
         ) {
-            jugadorGana = true;
+            playerWin = true;
         }
     
-        if (jugadorGana) {
+        if (playerWin) {
             createMessage("Winner 🥇");
             const result = Math.round(damage);
             hpEnemy = hpEnemy - result;
@@ -738,24 +753,60 @@ function combat(){
             spanLivesPlayer.innerHTML = hpPlayer;
         }
     }
+
+    review('hp')
+}
+function combatVictorys(){
     
+        if (attackEnemy == attackPlayer) {
+            createMessage("It's a TIE 🥈");
+        }
+        else if (
+            (attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
+            (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡" || attackEnemy == "🌱")) ||
+            (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
+            (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱")) ||
+            (attackPlayer == "⚡" && attackEnemy == "☄️")
+        ) {
+            createMessage("Winner 🥇");
+            victorysPlayer++
+            spanLivesPlayer.innerHTML = victorysPlayer
+        }
+        else {
+            createMessage("You Lost 🥉");
+            victorysEnemy++
+            spanLivesEnemy.innerHTML = victorysEnemy
+        }
 
-
-    reviewPV()
+    review('victorys')
 }
 
-function reviewPV(){
+function review(caseCombat){
 
-    if (hpPlayer > 0 && hpEnemy <= 0){
-        createMessageFinal("CONGRATULATIONS, Winner 🏆🎉!")
-        if (hpEnemy < 0){
-            spanLivesEnemy.innerHTML = 0
+    if (caseCombat == 'hp'){
+        if (hpPlayer > 0 && hpEnemy <= 0){
+            createMessageFinal("CONGRATULATIONS, Winner 🏆🎉!")
+            if (hpEnemy < 0){
+                spanLivesEnemy.innerHTML = 0
+            }
+        }
+        else if (hpEnemy > 0 && hpPlayer <= 0){
+            createMessageFinal("You have failed😖, try again.")
+            if (hpPlayer < 0){
+                spanLivesPlayer.innerHTML = 0
+            }
         }
     }
-    else if (hpEnemy > 0 && hpPlayer <= 0){
-        createMessageFinal("You have failed😖, try again.")
-        if (hpPlayer < 0){
-            spanLivesPlayer.innerHTML = 0
+    else if (caseCombat == 'victorys'){
+        if (victorysPlayer === 5){
+            createMessageFinal("CONGRATULATIONS, Winner 🏆🎉!")
+            spanLivesEnemy.innerHTML = 0
+        }
+        else if (hpEnemy > 0 && hpPlayer <= 0){
+            createMessageFinal("You have failed😖, try again.")
+            if (hpPlayer < 0){
+                spanLivesPlayer.innerHTML = 0
+            }
         }
     }
 
@@ -764,10 +815,7 @@ function reviewPV(){
 function createMessageFinal(final){
     
 
-    let paragraph = document.createElement("p")
-    paragraph.innerHTML = final
-
-    sectionMessages.appendChild(paragraph)
+    messageFinalAlert(final)
 
     botonFuego.disabled = true
     botonAgua.disabled = true

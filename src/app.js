@@ -42,3 +42,18 @@ function alertAvatar(avatar){
     }
 
 }
+
+function messageFinalAlert(finalEvent){
+
+    if (finalEvent == 'CONGRATULATIONS, Winner 🏆🎉!'){
+        Swal.fire({
+            title: 'CONGRATULATIONS, Winner 🏆🎉!'
+        })
+    }
+    else if (finalEvent == 'You have failed😖, try again.'){
+        Swal.fire({
+            title: 'You have failed😖, try again.'
+        })
+    }
+
+}
