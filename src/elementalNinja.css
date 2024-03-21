@@ -7,9 +7,10 @@
 /* Seleccionar Mokepon */
 body{
     background: linear-gradient(
-            #52c3e5b6,
-            #1c3270
-        ) center fixed;
+        to bottom, 
+        #0077ff, 
+        #3aa657) 
+        center fixed;
     background-size: cover;
 }
 
@@ -82,15 +83,15 @@ body{
 }
 
 .e{
-    color: #404258;
+    color: #73edc7;
     margin-top: 12px;
 }
-#n{
-    color: #004faa;
+.n{
+    color: #73edc7;
     margin: 0px;
 }
 .elige{
-    color: #00253d;
+    color: #00fff0;
 }
 
 .logo img{
@@ -109,8 +110,9 @@ body{
 }
 #next{
     background: radial-gradient(
-        #4460ad,
-        #418093b6
+        circle,
+        #00fff0,
+        #1eaf80
     );
     width: 140px;
     height: 40px;
@@ -120,8 +122,9 @@ body{
 }
 #next:hover{
     background: radial-gradient(
-        #296679b6,
-        #1e3f9c
+        circle,
+        #59f0ca,
+        #1eaf80
     );
     width: 180px;
     height: 65px;
@@ -138,11 +141,12 @@ body{
 }
 
 .ninja-card{
+    transition: all 0.5s;
     width: 165px;
     height: 110px;
     background: linear-gradient(
-        #067799b6,
-        #1037a1
+        #42baff,
+        #007FFF
     );
     color: white;
     padding: 10px;
@@ -151,9 +155,6 @@ body{
     border-radius: 12px;
     border: none;
     display: flex;
-    box-shadow: 0 0 5px #6B728E,
-                0 0 15px #6B728E;
-    transition: 0.4s;
     border: none;
 }
 
@@ -161,8 +162,8 @@ body{
     width: 175px;
     height: 110px;
     background: linear-gradient(
-        #153eaf,
-        #088db6b6
+        #0760ba,
+        #29b1ff
     );
     padding: 10px;
     box-sizing: border-box;
@@ -171,13 +172,7 @@ body{
     border: none;
     display: flex;
     cursor: pointer;
-    color: #b8abab;
-    box-shadow: 0 0 10px #585c6c,
-                0 0 20px #585c6c,
-                0 0 30px #585c6c,
-                0 0 40px #585c6c,
-                0 0 50px #585c6c;
-    transition: 0.5s;
+    box-shadow: 0 5px 8px 2px #42baff;
 }
 
 
@@ -215,14 +210,18 @@ input{
 }
 
 .botonNinja{
-    background-color: #6B728E;
+    background: radial-gradient(
+        circle,
+        #73edc7,
+        #00fff0
+    );
     color: black;
     width: 180px;
     height: 60px;
     border-radius: 12px;
     font-family: "Carter One", sans-serif;
-    box-shadow: 7px 10px 12px 5px #29335c;
-    transition: 0.4s;
+    box-shadow: 0 6px 7px 1px #73edc7;
+    transition: all 0.3s;
     border: none;
     text-align: center;
 }
@@ -230,26 +229,25 @@ input{
     cursor:pointer;
     width: 195px;
     height: 80px;
-    background-color: black;
-    color: white;
+    background: radial-gradient(
+        circle,
+        #00fff0,
+        #73edc7
+    );
     border-radius: 12px;
     font-family: "Carter One", sans-serif;
-    box-shadow: 9px 12px 14px 7px #29335c;
-    transition: 0.2s;
+    box-shadow: 0 7px 9px 2px #00fff0;
 }
 
 input:checked + label{
     width: 185px;
     background: radial-gradient(
+        circle,
         #30e2ff,
-        #28282f
+        #176b99
     );
     color: black;
-    box-shadow: 0 0 10px #000,
-                0 0 20px #000,
-                0 0 30px #000,
-                0 0 40px #000,
-                0 0 50px #000;
+    box-shadow: 0 6px 11px 3px #000;
     transition: 0.3s;
     margin: 7px;
     border-radius: 12px;
