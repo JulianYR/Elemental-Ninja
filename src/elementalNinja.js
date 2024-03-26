@@ -1,3 +1,4 @@
+// --- PREVIEW --- //
 // iniciar juego | start game
 const sectionNext = document.getElementById("welcome")
 const next = document.getElementById("next").addEventListener('click', () => {
@@ -31,18 +32,29 @@ cancel.addEventListener('click', () => {
 
     // final
     cancel.style.display = "none"
-})
 
-// Modes section | Seccion de modos
+    if (inputHidra.checked){
+        inputHidra.checked = false
+    }
+    else if (inputHorus.checked){
+        inputHorus.checked = false
+    }
+    else if (inputJeys.checked ){
+        inputJeys.checked = false
+    }
+    else if (inputKron.checked){
+        inputKron.checked = false
+    }
+    else if (inputKyrod.checked){
+        inputKyrod.checked = false
+    }
+    else if (inputWalker.checked){
+        inputWalker.checked = false
+    }
+    else if (inputKoryu.checked){
+        inputKoryu.checked = false
+    }
 
-const sectionGameMode = document.getElementById('sectionGameMode')
-const gameModeHP = document.getElementById('gameModeHP')
-gameModeHP.addEventListener('click', () => {
-    selectMode('hp')
-})
-const gameModeVictorys = document.getElementById('gameModeVictorys')
-gameModeVictorys.addEventListener('click', () => {
-    selectMode('victorys')
 })
 
 // Attacks section | Seccion de ataques
@@ -95,6 +107,7 @@ const spanLivesEnemy = document.getElementById("enemyLives")
 // create message | crear mensaje
 
 const sectionMessages = document.getElementById("messages")
+const messageAlertFinish = document.getElementById("messageAlertFinish")
 
 //createMessageFinal.......
 
@@ -193,7 +206,6 @@ let attackEnemy
 
 */
 
-let variableQuery
 let damage
 let damageHability
 let damageEnemy
@@ -232,19 +244,15 @@ const inputJeys = document.getElementById("Jeys🌱")
 const inputKyrod = document.getElementById("Kyrod🔥")
 const inputHorus = document.getElementById("Horus🌌")
 const inputKron = document.getElementById("Kron🍁")
-const inputkoryu = document.getElementById("Koryu💎")
+const inputKoryu = document.getElementById("Koryu💎")
 const inputWalker = document.getElementById("Walker🎃")
 
-let hpPlayer = 200
-let victorysPlayer = 0
-let hpEnemy = 200
-let victorysEnemy = 0
+let hpPlayer = 250
+let hpEnemy = 250
 
 function startGame(){
 
     sectionSelectNinja.style.display = "none"
-
-    sectionGameMode.style.display = "none"
 
     cancel.style.display = "none"
 
@@ -354,6 +362,9 @@ function showSkill(element){
         divhabilityWalker.style.display = "flex"
         cancel.style.display = "flex"
     }
+    else {
+        return ;
+    }
 }
 
 function selectNinjaPlayer(){
@@ -384,7 +395,7 @@ function selectNinjaPlayer(){
         spanNinja.innerHTML = "Kron🍁"
         botonNinjaJugador.style.display = "none"
     }
-    else if (inputkoryu.checked){
+    else if (inputKoryu.checked){
         alertAvatar('koryu')
         spanNinja.innerHTML = "Koryu💎"
         botonNinjaJugador.style.display = "none"
@@ -401,17 +412,7 @@ function selectNinjaPlayer(){
 
     sectionSelectNinja.style.display = "none"
 
-    sectionGameMode.style.display = "flex"
-
-}
-
-function selectMode(mode){
-    if (mode == 'hp'){
-        variableQuery = 'hp'
-    }
-    else if (mode == 'victorys'){
-        variableQuery = 'victorys'
-    }
+    sectionSelectAttack.style.display = "flex"
 
     selectNinjaEnemy()
 }
@@ -437,11 +438,6 @@ function selectNinjaEnemy(){
     else if (enemyRandom == 5){
         spanNinjaEnemy.innerHTML = 'Walker🎃'
     }
-
-    sectionSelectAttack.style.display = "flex"
-    sectionGameMode.style.display = "none"
-
-    consult(variableQuery)
 
 }
 
@@ -494,268 +490,14 @@ function attackRandomEnemy(){
         attackEnemy = "⚡"
         damageEnemy = random(27, 29)
     }
+    combat()
 }
 
-function consult(letConsdultF){
+function combat(){
 
-    if (letConsdultF == 'hp'){
-        combat('combatHP')
-    }
-    else if (letConsdultF == 'victorys'){
-        combat('combatVictorys')
-    }
+    // Hydra
 
-}
-
-function combat(modeCombat){
-
-    if (modeCombat === 'combatHP'){
-        // Hydra
-
-        if (spanNinja.innerHTML == "Hidra💧") {
-            if (attackEnemy == attackPlayer) {
-                createMessage("It's a TIE 🥈");
-            }
-            else if (
-                (attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
-                (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡" || attackEnemy == "🌱")) ||
-                (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
-                (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱")) ||
-                (attackPlayer == "⚡" && attackEnemy == "☄️")
-            ) {
-                createMessage("Winner 🥇");
-                const result = Math.round(damage);
-                hpEnemy = hpEnemy - result;
-                spanLivesEnemy.innerHTML = hpEnemy;
-            }
-            else {
-                createMessage("You Lost 🥉");
-                damageHability = damageEnemy;
-                damageHability = (damageHability * 0.8);
-                damageEnemy = damageEnemy - damageHability;
-                const resultEnemy = Math.round(damageEnemy);
-                hpPlayer = hpPlayer - resultEnemy;
-                spanLivesPlayer.innerHTML = hpPlayer;
-            }
-        }
-        
-
-        // Jeys
-
-        else if (spanNinja.innerHTML == "Jeys🌱") {
-            let playerWin = false;
-        
-            if (
-                (attackPlayer == "🔥" && attackEnemy == "🌱") ||
-                (attackPlayer == "🔥" && attackEnemy == "⚡") ||
-                (attackPlayer == "🔥" && attackEnemy == "☄️") ||
-                (attackPlayer == "💧" && attackEnemy == "🔥") ||
-                (attackPlayer == "💧" && attackEnemy == "⚡") ||
-                (attackPlayer == "🌱" && attackEnemy == "💧") ||
-                (attackPlayer == "🌱" && attackEnemy == "⚡") ||
-                (attackPlayer == "☄️" && attackEnemy == "💧") ||
-                (attackPlayer == "☄️" && attackEnemy == "🌱") ||
-                (attackPlayer == "⚡" && attackEnemy == "☄️")
-            ) {
-                playerWin = true;
-            }
-        
-            if (playerWin) {
-                createMessage("Winner 🥇");
-                const result = Math.round(damage);
-                hpEnemy = hpEnemy - result;
-                spanLivesEnemy.innerHTML = hpEnemy;
-            } 
-            else {
-                createMessage("You Lost 🥉");
-                if (!habilityJeys) {
-                    damageEnemy = damageEnemy - 15;
-                    const resultEnemy = Math.round(damageEnemy);
-                    hpPlayer = hpPlayer - resultEnemy;
-                    spanLivesPlayer.innerHTML = hpPlayer;
-                    habilityJeys = true;
-                } else {
-                    const resultEnemy = Math.round(damageEnemy);
-                    hpPlayer = hpPlayer - resultEnemy;
-                    spanLivesPlayer.innerHTML = hpPlayer;
-                }
-            }
-        }
-
-
-        // Kyrod
-
-        else if (spanNinja.innerHTML === "Kyrod🔥") {
-            if (attackEnemy === attackPlayer) {
-                createMessage("It's a TIE 🥈");
-            } 
-            else if (
-                (attackPlayer === "🔥" && attackEnemy === "🌱") ||
-                (attackPlayer === "🔥" && attackEnemy === "⚡") ||
-                (attackPlayer === "🔥" && attackEnemy === "☄️") ||
-                (attackPlayer === "💧" && attackEnemy === "🔥") ||
-                (attackPlayer === "💧" && attackEnemy === "⚡") ||
-                (attackPlayer === "🌱" && attackEnemy === "💧") ||
-                (attackPlayer === "🌱" && attackEnemy === "⚡") ||
-                (attackPlayer === "☄️" && attackEnemy === "💧") ||
-                (attackPlayer === "☄️" && attackEnemy === "🌱") ||
-                (attackPlayer === "⚡" && attackEnemy === "☄️")
-            ) {
-                createMessage("Winner 🥇");
-                damageHability = damage;
-                damageHability = (damageHability * 7.5) / 100;
-                damage = damage + damageHability;
-                const result = Math.round(damage)
-                hpEnemy = hpEnemy - result;
-                spanLivesEnemy.innerHTML = hpEnemy;
-            } 
-            else {
-                createMessage("You Lost 🥉");
-                const resultEnemy = Math.round(damageEnemy)
-                hpPlayer = hpPlayer - resultEnemy;
-                spanLivesPlayer.innerHTML = hpPlayer;
-            }
-        }
-
-
-        // Horus
-
-        else if (spanNinja.innerHTML == "Horus🌌") {
-            if (attackEnemy == attackPlayer) {
-                createMessage("It's a TIE 🥈");
-            } 
-            else {
-                const result = Math.round(damage);
-                
-                if ((attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
-                    (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡")) ||
-                    (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡")) ||
-                    (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱")) ||
-                    (attackPlayer == "⚡" && attackEnemy == "☄️")) {
-                    createMessage("Winner 🥇");
-                    hpEnemy -= result;
-                    spanLivesEnemy.innerHTML = hpEnemy;
-                } else {
-                    createMessage("You Lost 🥉");
-                    const resultEnemy = Math.round(damageEnemy);
-                    hpPlayer -= result;
-                    spanLivesPlayer.innerHTML = hpPlayer;
-                }
-            }
-        
-            if (hpPlayer <= 50 && !habilityHorus) {
-                damageEnemy -= 15;
-                habilityHorus = true;
-            }
-        }
-
-
-        // Kron
-
-        else if (spanNinja.innerHTML == "Kron🍁") {
-            let result = Math.round(damage);
-            
-            if (attackEnemy == attackPlayer || (attackEnemy == "☄️" && attackPlayer == "⚡")) {
-                createMessage("It's a TIE 🥈");
-            } else if ((attackPlayer == "🔥" && attackEnemy == "🌱") ||
-                    (attackPlayer == "🔥" && attackEnemy == "⚡") ||
-                    (attackPlayer == "🔥" && attackEnemy == "☄️") ||
-                    (attackPlayer == "💧" && attackEnemy == "🔥") ||
-                    (attackPlayer == "💧" && attackEnemy == "⚡") ||
-                    (attackPlayer == "🌱" && attackEnemy == "💧") ||
-                    (attackPlayer == "🌱" && attackEnemy == "⚡") ||
-                    (attackPlayer == "☄️" && attackEnemy == "💧") ||
-                    (attackPlayer == "☄️" && attackEnemy == "🌱") ||
-                    (attackPlayer == "⚡" && attackEnemy == "☄️")) {
-                createMessage("Winner 🥇");
-                
-                if (hpPlayer <= 30 && !habilityKron) {
-                    let damageHability = (damage * 25) / 100;
-                    damage += damageHability;
-                    result += Math.round(damageHability);
-                    habilityKron = true;
-                }
-                
-                hpEnemy -= result;
-                spanLivesEnemy.innerHTML = hpEnemy;
-            } 
-            else {
-                createMessage("You Lost 🥉");
-                let resultEnemy = Math.round(damageEnemy);
-                hpPlayer -= resultEnemy;
-                spanLivesPlayer.innerHTML = hpPlayer;
-            }
-        }
-        
-
-
-        // koryu
-
-        else if (spanNinja.innerHTML == "Koryu💎") {
-            if (
-                (attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
-                (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡")) ||
-                (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡")) ||
-                (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱"))
-            ) {
-                
-                if (attackPlayer == "☄️" && habilityDreyKroyu <= 4) {
-                    damageHability = ((damage * 13)/ 100);
-                    damage += damageHability;
-                    habilityDreyKroyu++;
-                }
-        
-                const result = Math.round(damage);
-                hpEnemy -= result;
-                spanLivesEnemy.innerHTML = hpEnemy;
-                createMessage("Winner 🥇");
-            }
-            else if (attackEnemy == attackPlayer) {
-                createMessage("It's a TIE 🥈");
-            }
-            else {
-                const resultEnemy = Math.round(damageEnemy);
-                hpPlayer -= resultEnemy;
-                spanLivesPlayer.innerHTML = hpPlayer;
-                createMessage("You Lost 🥉");
-            }
-        }
-        
-
-        
-        // Walker
-
-        else if (spanNinja.innerHTML == "Walker🎃") {
-            if (attackEnemy == attackPlayer) {
-                createMessage("It's a TIE 🥈");
-            } 
-            else if (
-                (attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
-                (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡")) ||
-                (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡")) ||
-                (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱"))
-            ) {
-                createMessage("Winner 🥇");
-                if (hpEnemy <= 50) {
-                    damageHability = damage * 0.20;
-                    damage += damageHability;
-                }
-                const result = Math.round(damage);
-                hpEnemy -= result;
-                spanLivesEnemy.innerHTML = hpEnemy;
-            }
-            else {
-                createMessage("You Lost 🥉");
-                const resultEnemy = Math.round(damageEnemy);
-                hpPlayer -= resultEnemy;
-                spanLivesPlayer.innerHTML = hpPlayer;
-            }
-        }
-
-        review('hp')
-    }
-    else if (modeCombat === 'combatVictorys'){
-
+    if (spanNinja.innerHTML == "Hidra💧") {
         if (attackEnemy == attackPlayer) {
             createMessage("It's a TIE 🥈");
         }
@@ -767,59 +509,255 @@ function combat(modeCombat){
             (attackPlayer == "⚡" && attackEnemy == "☄️")
         ) {
             createMessage("Winner 🥇");
-            victorysPlayer++
-            spanLivesPlayer.innerHTML = victorysPlayer
+            const result = Math.round(damage);
+            hpEnemy = hpEnemy - result;
+            spanLivesEnemy.innerHTML = hpEnemy;
         }
         else {
             createMessage("You Lost 🥉");
-            victorysEnemy++
-            spanLivesEnemy.innerHTML = victorysEnemy
+            damageHability = damageEnemy;
+            damageHability = (damageHability * 0.8);
+            damageEnemy = damageEnemy - damageHability;
+            const resultEnemy = Math.round(damageEnemy);
+            hpPlayer = hpPlayer - resultEnemy;
+            spanLivesPlayer.innerHTML = hpPlayer;
         }
-
-        review('victorys')
     }
     
-}
 
-function review(caseCombat){
+    // Jeys
 
-    if (caseCombat == 'hp'){
-        if (hpPlayer > 0 && hpEnemy <= 0){
-            createMessageFinal("CONGRATULATIONS, Winner 🏆🎉!")
-            if (hpEnemy < 0){
-                spanLivesEnemy.innerHTML = 0
+    else if (spanNinja.innerHTML == "Jeys🌱") {
+        let jugadorGana = false;
+    
+        if (
+            (attackPlayer == "🔥" && attackEnemy == "🌱") ||
+            (attackPlayer == "🔥" && attackEnemy == "⚡") ||
+            (attackPlayer == "🔥" && attackEnemy == "☄️") ||
+            (attackPlayer == "💧" && attackEnemy == "🔥") ||
+            (attackPlayer == "💧" && attackEnemy == "⚡") ||
+            (attackPlayer == "🌱" && attackEnemy == "💧") ||
+            (attackPlayer == "🌱" && attackEnemy == "⚡") ||
+            (attackPlayer == "☄️" && attackEnemy == "💧") ||
+            (attackPlayer == "☄️" && attackEnemy == "🌱") ||
+            (attackPlayer == "⚡" && attackEnemy == "☄️")
+        ) {
+            jugadorGana = true;
+        }
+    
+        if (jugadorGana) {
+            createMessage("Winner 🥇");
+            const result = Math.round(damage);
+            hpEnemy = hpEnemy - result;
+            spanLivesEnemy.innerHTML = hpEnemy;
+        } 
+        else {
+            createMessage("You Lost 🥉");
+            if (!habilityJeys) {
+                damageEnemy = damageEnemy - 15;
+                const resultEnemy = Math.round(damageEnemy);
+                hpPlayer = hpPlayer - resultEnemy;
+                spanLivesPlayer.innerHTML = hpPlayer;
+                habilityJeys = true;
+            } else {
+                const resultEnemy = Math.round(damageEnemy);
+                hpPlayer = hpPlayer - resultEnemy;
+                spanLivesPlayer.innerHTML = hpPlayer;
             }
         }
-        else if (hpPlayer > 0 && hpEnemy <= 0){
-            createMessageFinal("You have failed😖, try again.")
-            if (hpPlayer < 0){
-                spanLivesPlayer.innerHTML = 0
+    }
+
+
+    // Kyrod
+
+    else if (spanNinja.innerHTML === "Kyrod🔥") {
+        if (attackEnemy === attackPlayer) {
+            createMessage("It's a TIE 🥈");
+        } 
+        else if (
+            (attackPlayer === "🔥" && attackEnemy === "🌱") ||
+            (attackPlayer === "🔥" && attackEnemy === "⚡") ||
+            (attackPlayer === "🔥" && attackEnemy === "☄️") ||
+            (attackPlayer === "💧" && attackEnemy === "🔥") ||
+            (attackPlayer === "💧" && attackEnemy === "⚡") ||
+            (attackPlayer === "🌱" && attackEnemy === "💧") ||
+            (attackPlayer === "🌱" && attackEnemy === "⚡") ||
+            (attackPlayer === "☄️" && attackEnemy === "💧") ||
+            (attackPlayer === "☄️" && attackEnemy === "🌱") ||
+            (attackPlayer === "⚡" && attackEnemy === "☄️")
+        ) {
+            createMessage("Winner 🥇");
+            damageHability = damage;
+            damageHability = (damageHability * 7.5) / 100;
+            damage = damage + damageHability;
+            const result = Math.round(damage)
+            hpEnemy = hpEnemy - result;
+            spanLivesEnemy.innerHTML = hpEnemy;
+        } 
+        else {
+            createMessage("You Lost 🥉");
+            const resultEnemy = Math.round(damageEnemy)
+            hpPlayer = hpPlayer - resultEnemy;
+            spanLivesPlayer.innerHTML = hpPlayer;
+        }
+    }
+
+
+    // Horus
+
+    else if (spanNinja.innerHTML == "Horus🌌") {
+        if (attackEnemy == attackPlayer) {
+            createMessage("It's a TIE 🥈");
+        } 
+        else {
+            const result = Math.round(damage);
+            
+            if ((attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
+                (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡")) ||
+                (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡")) ||
+                (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱")) ||
+                (attackPlayer == "⚡" && attackEnemy == "☄️")) {
+                createMessage("Winner 🥇");
+                hpEnemy -= result;
+                spanLivesEnemy.innerHTML = hpEnemy;
+            } else {
+                createMessage("You Lost 🥉");
+                const resultEnemy = Math.round(damageEnemy);
+                hpPlayer -= result;
+                spanLivesPlayer.innerHTML = hpPlayer;
             }
         }
-    }
-    else if (caseCombat == 'victorys'){
-        if (victorysPlayer === 5){
-            createMessageFinal("CONGRATULATIONS, Winner 🏆🎉!")
-        }
-        else if (victorysEnemy === 5){
-            createMessageFinal("You have failed😖, try again.")
+    
+        if (hpPlayer <= 50 && !habilityHorus) {
+            damageEnemy -= 15;
+            habilityHorus = true;
         }
     }
 
+
+    // Kron
+
+    else if (spanNinja.innerHTML == "Kron🍁") {
+        let result = Math.round(damage);
+        
+        if (attackEnemy == attackPlayer || (attackEnemy == "☄️" && attackPlayer == "⚡")) {
+            createMessage("It's a TIE 🥈");
+        } else if ((attackPlayer == "🔥" && attackEnemy == "🌱") ||
+                   (attackPlayer == "🔥" && attackEnemy == "⚡") ||
+                   (attackPlayer == "🔥" && attackEnemy == "☄️") ||
+                   (attackPlayer == "💧" && attackEnemy == "🔥") ||
+                   (attackPlayer == "💧" && attackEnemy == "⚡") ||
+                   (attackPlayer == "🌱" && attackEnemy == "💧") ||
+                   (attackPlayer == "🌱" && attackEnemy == "⚡") ||
+                   (attackPlayer == "☄️" && attackEnemy == "💧") ||
+                   (attackPlayer == "☄️" && attackEnemy == "🌱") ||
+                   (attackPlayer == "⚡" && attackEnemy == "☄️")) {
+            createMessage("Winner 🥇");
+            
+            if (hpPlayer <= 30 && !habilityKron) {
+                let damageHability = (damage * 25) / 100;
+                damage += damageHability;
+                result += Math.round(damageHability);
+                habilityKron = true;
+            }
+            
+            hpEnemy -= result;
+            spanLivesEnemy.innerHTML = hpEnemy;
+        } 
+        else {
+            createMessage("You Lost 🥉");
+            let resultEnemy = Math.round(damageEnemy);
+            hpPlayer -= resultEnemy;
+            spanLivesPlayer.innerHTML = hpPlayer;
+        }
+    }
+    
+
+
+    // koryu
+
+    else if (spanNinja.innerHTML == "Koryu💎") {
+        if (
+            (attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
+            (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡")) ||
+            (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡")) ||
+            (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱"))
+        ) {
+            
+            if (attackPlayer == "☄️" && habilityDreyKroyu <= 4) {
+                damageHability = ((damage * 13)/ 100);
+                damage += damageHability;
+                habilityDreyKroyu++;
+            }
+    
+            const result = Math.round(damage);
+            hpEnemy -= result;
+            spanLivesEnemy.innerHTML = hpEnemy;
+            createMessage("Winner 🥇");
+        }
+        else if (attackEnemy == attackPlayer) {
+            createMessage("It's a TIE 🥈");
+        }
+        else {
+            const resultEnemy = Math.round(damageEnemy);
+            hpPlayer -= resultEnemy;
+            spanLivesPlayer.innerHTML = hpPlayer;
+            createMessage("You Lost 🥉");
+        }
+    }
+    
+
+    
+    // Walker
+
+    else if (spanNinja.innerHTML == "Walker🎃") {
+        if (attackEnemy == attackPlayer) {
+            createMessage("It's a TIE 🥈");
+        } 
+        else if (
+            (attackPlayer == "🔥" && (attackEnemy == "🌱" || attackEnemy == "⚡" || attackEnemy == "☄️")) ||
+            (attackPlayer == "💧" && (attackEnemy == "🔥" || attackEnemy == "⚡")) ||
+            (attackPlayer == "🌱" && (attackEnemy == "💧" || attackEnemy == "⚡")) ||
+            (attackPlayer == "☄️" && (attackEnemy == "💧" || attackEnemy == "🌱"))
+        ) {
+            createMessage("Winner 🥇");
+            if (hpEnemy <= 50) {
+                damageHability = damage * 0.20;
+                damage += damageHability;
+            }
+            const result = Math.round(damage);
+            hpEnemy -= result;
+            spanLivesEnemy.innerHTML = hpEnemy;
+        }
+        else {
+            createMessage("You Lost 🥉");
+            const resultEnemy = Math.round(damageEnemy);
+            hpPlayer -= resultEnemy;
+            spanLivesPlayer.innerHTML = hpPlayer;
+        }
+    }
+    
+
+
+    reviewPV()
 }
 
-function createMessageFinal(final){
-    
+function reviewPV(){
 
-    messageFinalAlert(final)
-
-    botonFuego.disabled = true
-    botonAgua.disabled = true
-    botonTierra.disabled = true
-    botonMeteoro.disabled = true
-    botonRayo.disabled = true
-    
-    seccionRestart.style.display = "flex"
+    if (hpPlayer > 0 && hpEnemy <= 0){
+        messageFinalAlert('CONGRATULATIONS, Winner 🏆🎉!')
+        createMessageFinal("CONGRATULATIONS, Winner 🏆🎉!")
+        if (hpEnemy < 0){
+            spanLivesEnemy.innerHTML = 0
+        }
+    }
+    else if (hpEnemy > 0 && hpPlayer <= 0){
+        messageFinalAlert('You have failed😖, try again.')
+        createMessageFinal("You have failed😖, try again.")
+        if (hpPlayer < 0){
+            spanLivesPlayer.innerHTML = 0
+        }
+    }
 
 }
 
@@ -829,6 +767,21 @@ function createMessage(result){
     paragraph.innerHTML = "You: " + attackPlayer + ", Enemy: " + attackEnemy + " - " + result
 
     sectionMessages.appendChild(paragraph)
+}
+
+function createMessageFinal(final){
+    
+
+    messageAlertFinish.innerText = final
+
+    botonFuego.disabled = true
+    botonAgua.disabled = true
+    botonTierra.disabled = true
+    botonMeteoro.disabled = true
+    botonRayo.disabled = true
+    
+    seccionRestart.style.display = "flex"
+
 }
 
 function restartGame(){

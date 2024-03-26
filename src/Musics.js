@@ -1,5 +1,5 @@
-let seleccion = new Audio()
-seleccion.src = "./music/musicWar.mp3"
+let selection = new Audio()
+selection.src = "./music/musicWar.mp3"
 
 
 let shootingFuego = new Audio()

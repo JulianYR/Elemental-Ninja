@@ -24,9 +24,9 @@
             <h1 class="n">NINJA</h1>
 
 
-            <h2 class="elige">Choose a Ninja</h2>
+            <h2 class="choose">Choose a Ninja</h2>
 
-            <div id="container" class="cards">
+            <div class="container">
 
                 <div class="containers">
 
@@ -162,7 +162,7 @@
 
             </div>
 
-            <button id="cancel" class="botonNinja">Cancel</button>
+            <button id="cancel" class="cancel">Cancel</button>
 
             <h4 id="version">Version: 2.0</h4>
 
@@ -170,20 +170,7 @@
 
         <section id="sectionBotonNinja">
 
-            <button id="botonNinja" class="botonNinja" onclick="seleccion.play()">Select <strong>NINJA!</strong></button>
-
-        </section>
-
-        <section id="sectionGameMode" class="">
-
-            <h2>Game Mode</h2>
-
-            <div class="modes">
-
-                <button id="gameModeHP" class="gameModes">HP</button>
-                <button id="gameModeVictorys" class="gameModes">Victorys</button>
-
-            </div>
+            <button id="botonNinja" class="botonNinja" onclick="selection.play()">Select <strong>NINJA!</strong></button>
 
         </section>
 
@@ -208,6 +195,7 @@
             <section id="restart">
                 <h5>Restart</h5>
                 <button id="botonRestart" class="elemen">Restart Game 🔁</button>
+                <h4 id="messageAlertFinish"></h4>
             </section>
 
             
@@ -217,16 +205,16 @@
 
                     <h3>You</h3>
                     <span id="ninja"> </span>
-                    <h4>HP</h4>
-                    <span id="playerLives">0</span> 
+                    <h4>Lives</h4>
+                    <span id="playerLives">250</span> 
         
                 </div>
                 <div class="victorys2">
                     
                     <h3>Enemy</h3>
                     <span id="ninjaEnemy"> </span>
-                    <h4>HP</h4>
-                    <span id="enemyLives">0</span>
+                    <h4>Lives</h4>
+                    <span id="enemyLives">250</span>
         
                 </div>
             </div>
