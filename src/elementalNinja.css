@@ -137,16 +137,15 @@ body{
 }
 .botonNinja{
     background: radial-gradient(
-        circle,
-        #73edc7,
-        #00fff0
+        #73c0ed,
+        #00e5ff
     );
     color: black;
     width: 180px;
     height: 60px;
     border-radius: 12px;
     font-family: "Carter One", sans-serif;
-    box-shadow: 0 6px 7px 1px #73edc7;
+    box-shadow: 0 5px 6px 1px #73c8ed;
     transition: all 0.3s;
     border: none;
     text-align: center;
@@ -156,13 +155,12 @@ body{
     width: 195px;
     height: 80px;
     background: radial-gradient(
-        circle,
-        #00fff0,
-        #73edc7
+        #00e5ff,
+        #73c0ed
     );
     border-radius: 12px;
     font-family: "Carter One", sans-serif;
-    box-shadow: 0 7px 9px 2px #00fff0;
+    box-shadow: 0 6px 8px 1px #73c8ed;
 }
 
 #selectAttack{
@@ -215,6 +213,20 @@ body{
     cursor: pointer;
     transition: 0.4s;
 }
+#messageAlertFinish {
+    background: linear-gradient(
+        #5467b4,
+        #00e5ff
+    );
+    border-radius: 14px;
+    width: 280px;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 5px 4px #2aa6d9;
+}
 .victorys{
     display: flex;
 }
@@ -231,6 +243,34 @@ body{
     align-items: center;
     justify-content: center;
     margin: 34px;
+}
+
+.cancel {
+    background: linear-gradient(
+        #73c0ed,
+        #00e5ff
+    );
+    color: black;
+    width: 180px;
+    height: 60px;
+    border-radius: 12px;
+    font-family: "Carter One", sans-serif;
+    box-shadow: 0 5px 6px 1px #73c8ed;
+    transition: all 0.3s;
+    border: none;
+    text-align: center;
+}
+.cancel:hover {
+    cursor:pointer;
+    width: 195px;
+    height: 80px;
+    background: radial-gradient(
+        #00e5ff,
+        #73c0ed
+    );
+    border-radius: 12px;
+    font-family: "Carter One", sans-serif;
+    box-shadow: 0 6px 8px 1px #73c8ed;
 }
 
 input{
